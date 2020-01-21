@@ -5,13 +5,20 @@ import List from '@material-ui/core/List';
 
 import TasklistItem from './TasklistItem';
 
-function Tasklist(props) {
+function Tasklist({ tasks, removeTask, toggleTask }) {
   return (
     <Paper>
       <List>
-        {props.tasks.map(task => (
+        {tasks.map(task => (
           <>
-            <TasklistItem task={task.task} key={task.id} completed={task.completed} />
+            <TasklistItem
+              id={task.id}
+              task={task.task}
+              key={task.id}
+              completed={task.completed}
+              removeTask={removeTask}
+              toggleTask={toggleTask}
+            />
             <Divider />
           </>
         ))}
