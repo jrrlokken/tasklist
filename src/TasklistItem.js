@@ -9,11 +9,11 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 
-function TasklistItem({ id, task, completed, removeTask, toggleTask }) {
+function TasklistItem({ id, task, completed, removeTask, toggleTask, editTask }) {
   const [isEditing, toggle] = useToggle(false);
   return (
-    <ListItem>
-      {isEditing ? <EditTaskForm /> : 
+    <ListItem style={{ height: '64px' }}>
+      {isEditing ? <EditTaskForm editTask={editTask} id={id} task={task} toggleEditForm={toggle} /> : 
       <>
         <Checkbox tabIndex={-1} checked={completed} onClick={() => toggleTask(id)} />
         <ListItemText style={{ textDecoration: completed ? 'line-through' : 'none' }}>{task}</ListItemText>

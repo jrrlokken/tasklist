@@ -5,26 +5,27 @@ import List from '@material-ui/core/List';
 
 import TasklistItem from './TasklistItem';
 
-function Tasklist({ tasks, removeTask, toggleTask }) {
-  return (
-    <Paper>
-      <List>
-        {tasks.map(task => (
-          <>
-            <TasklistItem
-              id={task.id}
-              task={task.task}
-              key={task.id}
-              completed={task.completed}
-              removeTask={removeTask}
-              toggleTask={toggleTask}
-            />
-            <Divider />
-          </>
-        ))}
-      </List>
-    </Paper> 
-  );
+function Tasklist({ tasks, removeTask, toggleTask, editTask }) {
+  if(tasks.length)
+    return (
+      <Paper>
+        <List>
+          {tasks.map((task, idx) => (
+            <>
+              <TasklistItem
+                {...task}
+                key={task.id}
+                removeTask={removeTask}
+                toggleTask={toggleTask}
+                editTask={editTask}
+              />
+              { idx < tasks.length -1 && <Divider />}
+            </>
+          ))}
+        </List>
+      </Paper> 
+    );
+  return null;
 }
 
 export default Tasklist;
