@@ -1,19 +1,14 @@
 import React from 'react';
-
-import useTaskState from './hooks/useTaskState';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Grid from '@material-ui/core/Grid';
-
 import Tasklist from './Tasklist';
 import TasklistForm from './TasklistForm';
+import { TasksProvider } from './contexts/tasks.context';
 
 function TasklistApp() {
-  const initialTasks = JSON.parse(window.localStorage.getItem('tasks') || '[]');
-  const { tasks, addTask, removeTask, toggleTask, editTask } = useTaskState(initialTasks);
-
   return (
     <Paper
       style={{
@@ -31,16 +26,12 @@ function TasklistApp() {
       </AppBar>
       <Grid container justify='center' style={{ marginTop: '1rem' }}>
         <Grid item xs={11} md={8} lg={4}>
-          <TasklistForm addTask={addTask} />
-          <Tasklist
-            tasks={tasks}
-            removeTask={removeTask}
-            toggleTask={toggleTask}
-            editTask={editTask}
-          />
+          <TasksProvider>
+            <TasklistForm />
+            <Tasklist />
+          </TasksProvider>
         </Grid>
       </Grid>
-      
     </Paper>
   )
 }

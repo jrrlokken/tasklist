@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Paper from '@material-ui/core/Paper';
 import Divider from '@material-ui/core/Divider';
 import List from '@material-ui/core/List';
-
 import TasklistItem from './TasklistItem';
+import { TasksContext } from './contexts/tasks.context';
 
-function Tasklist({ tasks, removeTask, toggleTask, editTask }) {
+
+function Tasklist(props) {
+  const tasks = useContext(TasksContext);
   if(tasks.length)
     return (
       <Paper>
@@ -15,9 +17,6 @@ function Tasklist({ tasks, removeTask, toggleTask, editTask }) {
               <TasklistItem
                 {...task}
                 key={task.id}
-                removeTask={removeTask}
-                toggleTask={toggleTask}
-                editTask={editTask}
               />
               { idx < tasks.length -1 && <Divider />}
             </>
