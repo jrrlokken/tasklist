@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, memo } from 'react';
 import useToggle from './hooks/useToggle';
 import EditTaskForm from './EditTaskForm';
 import ListItem from '@material-ui/core/ListItem';
@@ -13,6 +13,7 @@ import { DispatchContext } from './contexts/tasks.context';
 function TasklistItem({ id, task, completed }) {
   const dispatch = useContext(DispatchContext);
   const [isEditing, toggle] = useToggle(false);
+
   return (
     <ListItem style={{ height: '64px' }}>
       {isEditing ? <EditTaskForm id={id} task={task} toggleEditForm={toggle} /> : 
@@ -33,4 +34,4 @@ function TasklistItem({ id, task, completed }) {
   )
 }
 
-export default TasklistItem;
+export default memo(TasklistItem);
