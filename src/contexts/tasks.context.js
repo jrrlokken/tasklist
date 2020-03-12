@@ -2,10 +2,7 @@ import React, { createContext } from 'react';
 import {useLocalStorageReducer} from '../hooks/useLocalStorageReducer';
 import taskReducer from '../reducers/tasks.reducer';
 
-const defaultTasks = [
-  { id: 1, task: 'Mow the lawn with goats', completed: true },
-  { id: 2, task: 'Spend time with Maggie!', completed: false }
-];
+const defaultTasks = [];
 
 export const TasksContext = createContext();
 export const DispatchContext = createContext();
