@@ -8,10 +8,11 @@
     "@testing-library/jest-dom": "^5.11.2",
     "@testing-library/react": "^10.4.7",
     "@testing-library/user-event": "^12.1.0",
+    "node-forge": "^0.10.0",
     "npm-check-updates": "^7.0.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
+    "react-scripts": "^3.4.3",
     "typescript": "^3.9.7",
     "uuidv4": "^6.2.1"
   },
