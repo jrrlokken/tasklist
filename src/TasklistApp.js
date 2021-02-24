@@ -21,7 +21,7 @@ function TasklistApp() {
     >
       <AppBar color='primary' position='static' style={{ height: '64px' }} >
         <Toolbar>
-          <Typography color='inherit'>Tasklist with Hooks</Typography>
+          <Typography color='inherit'>Tasklist</Typography>
         </Toolbar>
       </AppBar>
       <Grid container justify='center' style={{ marginTop: '1rem' }}>
